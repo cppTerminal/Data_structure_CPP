@@ -1,4 +1,4 @@
-### Operators
+## Operators
 
 & : Address of operator.
 
@@ -14,9 +14,9 @@ When printing addresses for char variables, casting is needed to see the address
 
 ---------------------------------------------
 
-Function Parameter Passing
+### Function Parameter Passing
 
-Call by Value
+#### Call by Value
 
 Function operates on a copy of the argument. Original value remains unchanged.
 	funciton(var);->function(local_var)  
@@ -32,7 +32,6 @@ m		 10				0x789				 10
 	 --------------- 					---------------
 &f	|	 10 		|	0xabc				 11	
 	---------------						---------------
-
 
 
 	|				|
@@ -52,7 +51,7 @@ m		 10				0x789				 10
 	|		m		|	m  = 10, f = 11
 	----------------
 
-Call by Address
+#### Call by Address
 
 Passes address of variable. Function modifies the original value through its address.
 
@@ -82,7 +81,7 @@ m & f both are at same memory location
 |	&m = abc	|	m  = 10, f = 11
  ---------------
 
-Call by Reference  &y = x; 
+#### Call by Reference  &y = x; 
 
 int &ref = var; creates an alias. Changes to ref reflect in var.	
 
@@ -131,7 +130,7 @@ int &ref = var; creates an alias. Changes to ref reflect in var.
 
 
  ------------------------------------------------------
- # Array
+ ## Array
 
  // datatype NameOfArray[size]
 
@@ -199,7 +198,7 @@ sizeof(array) --> arrry size
 
 ------------------------------
 
-functors
+## functors
 
 C++ functor is function object is a class or struct object
 that can be called like a function
@@ -221,7 +220,7 @@ int foo(int &) -- can have return type
 
  ----------------------------------
 
- exception handling
+## exception handling
 
 
 cerr : stderr
@@ -239,7 +238,7 @@ std::cerr << ex.what();_
 
 -------------------------------
 
-Inheritance 
+## Inheritance 
 
 Provides a way creating new classes from existing classes
 
@@ -277,7 +276,7 @@ related classes, common details abstact out
 
 	 ------------------------------------------------------
 
-Access Modifier : Public, private, public
+## Access Modifier : Public, private, public
 
 Protected : 
 - accessible from base calss iteself
@@ -310,7 +309,7 @@ Parent =	Public		-: private in child
 
 ------------------------------
 
-polyphormism - having many forms
+## polyphormism - having many forms
 
 int max(int a, int b)
 {
@@ -335,7 +334,7 @@ float max(float a, float b)
 function overloading	Operator overloading		[virtual fucntions]
 
 
-RunTime polyphormism:
+### RunTime polyphormism:
 
 
 	runTimePolyClass* u = new runTimePolyClass();		// Should Call User Class Dislpay()
@@ -354,7 +353,9 @@ RunTime polyphormism:
 
 
 
-	-------------------------- Generic programming
+	-------------------------- 
+	
+## Generic programming
 
 	Function template
 		int max (int, int);
@@ -384,7 +385,8 @@ RunTime polyphormism:
 		
 
 	
-	------------------- OOP
+	------------------- 
+### OOP
 	// build a multiplayer guess	game 
 	// game decides random number x between 1-10;
 	// player who guess x correclty win the match
@@ -425,7 +427,7 @@ RunTime polyphormism:
 	}
 
 
-	copy constroctor
+### 	copy constroctor
 	GuessGame g1(string, string, int);
 	g1.display();
 
