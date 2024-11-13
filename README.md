@@ -1,21 +1,16 @@
-# Data_structure_CPP
+### Operators
 
+& : Address of operator.
 
- 
----------------------------------------------
-
- # Operator
-
- & : Address of operator
-
- 	//& : address operator
+	//& : address operator provides the memory address of a variable
 	int y = 10;
-	std::cout << (&y) << std::endl;			 //  &bucket = address
+	std::cout << &y << std::endl;  // Address of y
+
+When printing addresses for char variables, casting is needed to see the address instead of the character value:
+
 	char x = 'A';
-	std::cout << (&x) << std::endl;			  // cout << &char = VALUE of char 
-	std::cout << (void*)(&x) << std::endl;    // cout << (void *)&char = Address
-
-
+	std::cout << (&x) << std::endl;			// cout << &char = VALUE of char 
+	std::cout << (void*)(&x) << std::endl;    	// cout << (void *)&char = Address
 
 ---------------------------------------------
 	
