@@ -1,3 +1,6 @@
+# C++ Data Structures and Key Concepts
+
+---------------------------------------------
 ## Operators
 
 & : Address of operator.
@@ -196,6 +199,16 @@ cin.getline() --> array_name, size, 'condition'
 strlen(array)_ --. no o char includeind space, newline
 sizeof(array) --> arrry size
 
+Declared with fixed size: int arr[10];
+
+Array names are similar to pointers but cannot be reassigned.
+
+Static arrays allocate memory on the stack; dynamic arrays (using malloc or new) use the heap.
+
+
+Printing Arrays
+
+std::cout << arr; shows address for int array, contents for char array.
 ------------------------------
 
 ## functors
@@ -216,7 +229,14 @@ foo(arg)    -- can be provided argument
 
 int foo(int &) -- can have return type
  
+A functor is an object that can be used like a function.
 
+class Functor {
+public:
+    void operator()(int arg) { /* code */ }
+};
+Functor fun;
+fun(5);  // Calls operator()
 
  ----------------------------------
 
@@ -232,8 +252,11 @@ std::bad_cast  c++ attempt
 std::bad_exception
 
 
-std::cerr << ex.what();_
+std::cerr << ex.what();
 
+Standard Exceptions: std::exception, std::bad_alloc, std::bad_cast.
+
+Error output: std::cerr << ex.what();
 
 
 -------------------------------
@@ -274,6 +297,10 @@ related classes, common details abstact out
 	 action() override;
 	};
 
+Allows reuse of classes by creating new classes based on existing ones.
+
+class Base { /* ... */ };
+class Derived : public Base { /* ... */ };
 	 ------------------------------------------------------
 
 ## Access Modifier : Public, private, public
@@ -306,37 +333,54 @@ Parent =	Public		-: private in child
 // When child class is created : base class constructor executes and derived contructor executes
 // for Desctructor, order is opposite.
 
+Access Modifiers
+
+Public: Public members stay public in derived classes.
+
+Protected: Accessible within derived classes.
+
+Private: Not accessible by derived class objects.
 
 ------------------------------
 
 ## polyphormism - having many forms
 
-int max(int a, int b)
-{
-return --------
-}
 
-float max(float a, float b)
-{
-	return float
+	int max(int a, int b)
+	{
+	return --------
+	}
 
-}
+	float max(float a, float b)
+	{
+		return float
+	}
 
-
-^|^ --- COMPILE TIME BINDING OR EARLY BINDING
-
+"""
 							polyphormism
-					
 					|								|
-			compile time						runtime polyphormism
+				compile time						runtime polyphormism
 				/			\
 			|				   |					
 function overloading	Operator overloading		[virtual fucntions]
+"""
+
+### Compile-Time Polymorphism (Early binding)
+
+Function Overloading: Different functions with the same name but different parameters.
+
+Operator Overloading: Redefining operators for custom types.
+
 
 
 ### RunTime polyphormism:
 
+Achieved with virtual functions, allowing base pointers to call derived class methods.
 
+class Base {
+public:
+    virtual void display() { /* code */ }
+};
 	runTimePolyClass* u = new runTimePolyClass();		// Should Call User Class Dislpay()
 	u->display();
 
@@ -358,6 +402,7 @@ function overloading	Operator overloading		[virtual fucntions]
 ## Generic programming
 
 	Function template
+	Used for generic programming to create a function for different data types.
 		int max (int, int);
 		float max(float, float);
 		string max(string, string);
@@ -373,13 +418,13 @@ function overloading	Operator overloading		[virtual fucntions]
 	
 	
 	Class Template
+	Allows defining classes with generic data types.
 		To create a single class to work with different data type
 		Class template comes in handy as they can make our code shorter and management.
 
 		template<class T>
 		class classname
 		{
-		private :
 			T var;
 		};
 		
@@ -440,7 +485,7 @@ Copy constructors allow creating a new object from an existing one.
 		this->handle = g1.handle;
 	}
 
-### 	copy operator
+### 	copy assignment operator
 	guessGame g2 = g1 : copy assignment operator
 
 	must be assigned by values, initization of values for ctor will not work;
