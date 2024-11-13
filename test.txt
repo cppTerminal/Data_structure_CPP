@@ -1,0 +1,7 @@
+echo "# Data_structure_CPP" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/poonamj03/Data_structure_CPP.git
+git push -u origin main
