@@ -387,6 +387,67 @@ function overloading	Operator overloading		[virtual fucntions]
 	
 	------------------- 
 ### OOP
+
+
+Constructors
+
+Initialize object attributes, can be overloaded.
+
+
+	only single ctror will be called.
+	ctror is as same name as class name
+	ctor over-rider to compiler default over ride
+	ctor overloading possible
+	ctror can be used to initialise attributes.
+
+#### Getter/Setter Functions
+	getter() setter()
+	Access and modify private data members.
+	------------
+
+### Constant Functions
+
+Use const if the function does not modify any member variables:
+	void myFunction() const 
+	{ 
+		/* code */ 
+	}
+	
+	constant -> const 
+	initialization allowed, assignement not
+
+	class_ctor(int x) : datamember(value)_ -- initialization 
+
+
+### 	copy constroctor  
+
+Copy constructors allow creating a new object from an existing one.
+	
+	* Creates a new object as a copy of an existing one:
+
+	class MyClass {
+    	MyClass(const MyClass &obj) { /* copy code */ }
+	};
+
+
+	GuessGame g1(string, string, int);
+	g1.display();
+	GuessGame g2(g1);   copy constror
+
+	//g1 pass by reference bhejna padega.
+	className(className &g1) : fistname(first), secondName(second)
+	{
+		this->handle = g1.handle;
+	}
+
+### 	copy operator
+	guessGame g2 = g1 : copy assignment operator
+
+	must be assigned by values, initization of values for ctor will not work;
+
+
+## Guess Game
+
 	// build a multiplayer guess	game 
 	// game decides random number x between 1-10;
 	// player who guess x correclty win the match
@@ -402,48 +463,3 @@ function overloading	Operator overloading		[virtual fucntions]
 		player p1;
 	
 	}
-
-	only single ctror will be called.
-	ctror is as same name as class name
-	ctor over-rider to compiler default over ride
-	ctor overloading possible
-	ctror can be used to initialise attributes.
-
-
-	getter() setter()
-	------------
-
-	constant -> const 
-	initialization allowed, assignement not
-
-	class_ctor(int x) : datamember(value)_ -- initialization 
-
-
-	data member is not changng in function then 
-	we can put const for function 
-
-	void functom() const
-	{
-	}
-
-
-### 	copy constroctor
-	GuessGame g1(string, string, int);
-	g1.display();
-
-	GuessGame g2(g1);   copy constror
-
-	//g1 pass by reference bhejna padega.
-	className(className &g1) : fistname(first), secondName(second)
-	{
-	this->handle = g1.handle;
-	}
-
-
-	guessGame g2 = g1 : copy assignment operator
-
-	must be assigned by values, initization of values for ctor will not work;
-
-
-
-	#ifndef Token
