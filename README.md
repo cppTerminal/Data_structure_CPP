@@ -13,13 +13,16 @@ When printing addresses for char variables, casting is needed to see the address
 	std::cout << (void*)(&x) << std::endl;    	// cout << (void *)&char = Address
 
 ---------------------------------------------
-	
-// Call by value
-/*
-funciton(var);->function(local_var)  
-Local changs 
-Var Intact 
-*/
+
+Function Parameter Passing
+
+Call by Value
+
+Function operates on a copy of the argument. Original value remains unchanged.
+	funciton(var);->function(local_var)  
+	Local changs 
+	Var Intact 
+
 
 	    before								 later
 	--------------- 					---------------   
@@ -32,26 +35,33 @@ m		 10				0x789				 10
 
 
 
-|				|
-|				| f  = 10
-|	  | 10 |	| f  = f + 1
-|		f		| f  = 11
- ---------------
-|				|
-|				|	f  = 10
-|	  | 10 |	|	f  = f + 1	
-|		m		|	m  = 10, f = 11
-----------------
+	|				|
+	----------------
+	|				| f  = 10
+	----------------
+	|	  | 10 |	| f  = f + 1
+	----------------
+	|		f		| f  = 11
+ 	 ----------------
+	|				|
+	----------------
+	|				|	f  = 10
+	----------------
+	|	  | 10 |	|	f  = f + 1	
+	----------------
+	|		m		|	m  = 10, f = 11
+	----------------
 
-// Call by Address
-/*
-funciton(&var);->function(*local_var)         
+Call by Address
 
-Accept address
-Both variable updates
-value of Address is actually changing.
-Playing with memory location  -> rather than copying 
-*/
+Passes address of variable. Function modifies the original value through its address.
+
+	funciton(&var);->function(*local_var)         
+
+	Accept address
+	Both variable updates
+	value of Address is actually changing.
+	Playing with memory location  -> rather than copying 
 
 m & f both are at same memory location
 
@@ -72,47 +82,46 @@ m & f both are at same memory location
 |	&m = abc	|	m  = 10, f = 11
  ---------------
 
-// Call by reference  &y = x; 
-funciton(&var);->function(local_var)
+Call by Reference  &y = x; 
 
+int &ref = var; creates an alias. Changes to ref reflect in var.	
 
-int &y = x;   reference to variable 
+	funciton(&var);->function(local_var)
+
+	int &y = x;   reference to variable 
 			  It non mutable
 
-value			   10
-reference    	  x, y 
+	value			   10
+	reference    	  x, y 
 
- y=y+1		//x b change ho gya h 
-value			   11
-reference    	  x, y
+	 y=y+1		//x b change ho gya h 
+	value			   11
+	reference    	  x, y
 
-int z = 30;
-y = z;			// changes x, y = 30
+	int z = 30;
+	y = z;			// changes x, y = 30
 	
-value			   30
-reference    	  x, y
+	value			   30
+	reference    	  x, y
 
 
 
 
-	before								later
- --------------- 					---------------
-|	| 10 |		|	abc					 11	
- ---------------					---------------
+		before								later
+ 	--------------- 					---------------
+	|	| 10 |		|	abc					 11	
+ 	---------------					---------------
 
-
-
-|				|   f  = &m
-|				|  *f  = * &f
-|	  | &m |	|  *f  = *f + 1
-|	    f		|  
- ---------------
-|				|
-|				|	m  = 10
-|	   10		|	f  = &m	
-|	&m = abc	|	m  = 10, f = 11
- ---------------
-
+	|				|   f  = &m
+	|				|  *f  = * &f
+	|	  | &m |	|  *f  = *f + 1
+	|	    f		|  
+ 	---------------
+	|				|
+	|				|	m  = 10
+	|	   10		|	f  = &m	
+	|	&m = abc	|	m  = 10, f = 11
+ 	---------------
 
  Major difference between two is 
  f = 10  rather than address/reference  f = &m
